@@ -19,9 +19,9 @@ Devloped a web application using Django that allows users to share posts, commen
 ## IMP 
 (When you download this, you must create a .env file in your root directory and write all of the information given below.)
 
-- **DB_NAME** = <Dabtabase Name>
-- **DB_USER** = <Dabtabase UserName>
-- **DB_PASSWORD** = <Dabtabase Password>
+- **DB_NAME** = (Dabtabase Name)
+- **DB_USER** = (Dabtabase UserName)
+- **DB_PASSWORD** = (Dabtabase Password)
 - **DB_HOST** = localhost
 
 ## Sign Up Page 

@@ -4,6 +4,7 @@ Devloped a web application using Django that allows users to share posts, commen
 
 ## Features
 
+- 🖼️ **Create Post** - When creating a post, find the image URL on flickr and paste it in the url text box. Give the image a title and caption. 
 - 📝 **Post Management** - Create, edit, and delete posts.
 - 🌐 **Asynchronous Scraping** - Fetch and parse website content asynchronously.
 - 📝 **Comment and Reply System** - Users can comment on posts and reply to comments.
@@ -32,6 +33,10 @@ Devloped a web application using Django that allows users to share posts, commen
 
 ## Home Page 
 ![Home Pages1](https://github.com/Shubh556/Insta-Clone/blob/main/Images/home.png?raw=true)
+
+## Create Post
+![Home Pages1](https://github.com/Shubh556/Insta-Clone/blob/main/Images/create%20post.png?raw=true)
+
 
 ## Edit Post Page
 ![Home Pages1](https://github.com/Shubh556/Insta-Clone/blob/main/Images/edit%20post.png?raw=true)

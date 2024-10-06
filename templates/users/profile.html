@@ -1,0 +1,99 @@
+{% extends 'layouts/d.html' %}
+
+
+{% block content %}
+
+<div id="profile" class="flex flex-col items-center">
+    
+    <div class="w-full md:w-[36rem] lg:w-[50rem]">
+        <div class="card p-6">
+            <div class="text-center flex flex-col items-center">
+                <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{profile.avatar}}" />
+                <div class="text-center max-w-md">
+                    <h1>  {% if profile.name %}
+                        {{user.profile.name}}
+                        {% else %}
+                        Hello User
+                        {% endif %}
+                    </h1>
+                   
+                    <div class="flex items-center justify-center mx-auto">
+                        <img class="object-cover h-6 mr-1 opacity-60" src="https://img.icons8.com/material-outlined/50/000000/marker.png">
+                    
+                    {% if profile.country %}
+
+                    {{profile.country}}
+
+                    {% else %}
+
+                    Earth
+                        
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tabs" class="flex justify-center my-4 gap-2">
+        <a hx-get="{% url 'display-profile' profile.user.username %}?posts=true"
+           hx-target="#tab-contents" hx-swap="innerHTML"
+           class="tab posts-tab selected">Posts</a>  
+           
+        <a hx-get="{% url 'display-profile' profile.user.username %}?liked-posts=true"
+           hx-target="#tab-contents" hx-swap="innerHTML"
+           class="tab liked-tab">Liked Posts</a>
+    </div>
+    
+    <div id="tab-contents" class="w-full flex flex-col items-center">
+        <div class="grid place-items-start gap-x-8 mx-auto max-w-xl
+            {% if posts|length <= 1 %}
+            {% elif posts|length == 2 %}lg:grid-cols-2 lg:max-w-5xl
+            {% else %}lg:grid-cols-2 lg:max-w-5xl xl:grid-cols-3 xl:max-w-7xl
+            {% endif %}
+        ">
+        
+    {% for post in posts %}
+        {% include 'post/post.html' %}
+    {% endfor %}
+
+    </div>
+
+        
+        
+
+    </div>
+
+</div>
+
+<style>
+    .tab {
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .selected {
+      background-color: #4a90e2;  /* Blue background for selected tab */
+      color: white;                /* White text for selected tab */
+    }
+    .tab:not(.selected) {
+      background-color: #f3f4f6;   /* Light gray background for non-selected tab */
+      color: #4b5563;              /* Darker text for non-selected tab */
+    }
+    .tab:hover {
+      background-color: #e5e7eb;   /* Hover state for non-selected tab */
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('htmx:afterRequest', function(event) {
+      const tabs = document.querySelectorAll('#tabs .tab');
+      tabs.forEach(tab => tab.classList.remove('selected'));  // Remove 'selected' from all tabs
+      event.detail.elt.classList.add('selected');  // Add 'selected' to the clicked tab
+    });
+  </script>
+    
+{% endblock content %}
+    

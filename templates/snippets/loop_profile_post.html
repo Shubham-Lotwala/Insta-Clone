@@ -1,0 +1,18 @@
+<div class="grid place-items-start gap-x-8 mx-auto
+    {% if posts|length <= 1 %}grid-cols-1 max-w-xl
+    {% elif posts|length == 2 %}grid-cols-1 max-w-xl lg:grid-cols-2 lg:max-w-5xl
+    {% else %}grid-cols-1 max-w-xl lg:grid-cols-2 lg:max-w-5xl xl:grid-cols-3 xl:max-w-7xl
+    {% endif %}">
+
+    {% if message %}
+        <div class="text-center text-gray-500 mt-4">{{ message }}</div>
+    {% else %}
+        {% if posts %}
+            {% for post in posts %}
+                {% include 'post/post.html' %}
+            {% endfor %}
+        {% else %}
+            <div class="w-full text-center mt-10">No Posts</div>
+        {% endif %}
+    {% endif %}
+</div>

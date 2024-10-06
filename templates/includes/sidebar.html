@@ -1,0 +1,33 @@
+{% load static %}
+<aside x-show="mobileSidebarOpen" x-cloak class="md:!block col-span-full md:col-span-1 lg:mr-[20%] order-1 md:order-2"
+x-transition:enter="duration-300 ease-out"
+x-transition:enter-start="opacity-0 -mt-96"
+x-transition:enter-end="opacity-100 mt-0">
+<section class="card p-4">
+    <div class="flex items-center">
+        <img class="w-7 mr-2 -mt-3" src="{% static 'images/fireheart_black.svg' %}" />
+        <h2>Top Posts</h2>
+    </div>
+    <ul class="hoverlist">
+        {% for post in top_posts %}
+    <li>
+        <a href="{% url 'post-page' post.pk %}" class="flex items-stretch justify-between">
+            <div class="flex items-center truncate">
+                <!-- Author's avatar or default image -->
+                <img class="w-10 h-10 object-cover rounded-full" 
+                     src="{{ post.author.profile.avatar|default:'static/images/avatar_default.svg' }}">
+                
+                <span class="font-bold text-sm ml-4">{{ post.title }}</span>
+            </div>
+            <!-- Like count -->
+            <span class="text-sm font-light text-grey-500 shrink-0">{{ post.like_count }} Likes</span>
+        </a>
+    </li>
+{% empty %}
+    <li>No top posts available.</li>
+{% endfor %}
+
+    </ul>
+</section>
+    
+</aside>

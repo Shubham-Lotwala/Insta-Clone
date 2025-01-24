@@ -1,4 +1,4 @@
-# Xtragram with Asynchronous Scraping
+# Xtragram 
 
 Devloped a web application using Django that allows users to share posts, comment on them, and reply to comments. The home page shows all posts and highlights the most popular ones based on likes. Users can create new posts by providing a title, URL, and caption. The app fetches and displays images and titles from the provided URLs. Users can also edit or delete their own posts. Additionally, users can like posts, comments, and replies. The application includes forms for creating and editing posts, comments, and replies
 

@@ -25,6 +25,11 @@ Devloped a web application using Django that allows users to share posts, commen
 - **DB_PASSWORD** = (Dabtabase Password)
 - **DB_HOST** = localhost
 
+
+
+## How To Copy Url For This
+- Copy the **URL** displayed in your browser's search bar and paste it into the url text box.
+
 ## Sign Up Page 
 ![Home Pages1](https://github.com/Shubh556/Insta-Clone/blob/main/Images/signup.png?raw=true)
 

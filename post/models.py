@@ -3,9 +3,6 @@ import uuid
 from users.models import User
 
 
-# Create your models here.
-
-
 class Post(models.Model):
     title = models.CharField(max_length=100, blank=False, null=False)
     image = models.URLField(max_length=1000)
